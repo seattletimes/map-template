@@ -1,1 +1,3 @@
-//Use CommonJS style via browserify to load other modules
+//load our custom elements
+require("component-leaflet-map");
+require("component-responsive-frame");

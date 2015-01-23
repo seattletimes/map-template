@@ -4,3 +4,24 @@
   -ms-box-sizing: border-box;
   box-sizing: border-box;
 }
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.map-container {
+  width: 100%;
+  height: 0;
+  padding-bottom: 56%;
+  position: relative;
+  display: block;
+
+  leaflet-map {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}

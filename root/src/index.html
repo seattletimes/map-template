@@ -9,6 +9,31 @@
   </head>
   <body>
 
+    <responsive-child class="map-container">
+      <leaflet-map zoom=4>
+        <tile-layer layer="esriGray"></tile-layer>
+        <geo-json>
+          <geo-data><%= t.include("states.geo.json") %></geo-data>
+          <geo-style>{ "weight": 1, "color": "#000" }</geo-style>
+          <geo-palette property="CENSUSAREA">
+            <color-mapping max=10000 color="purple"></color-mapping>
+            <color-mapping min=10001 max=50000 color="blue"></color-mapping>
+            <color-mapping min=50001 max=100000 color="green"></color-mapping>
+            <color-mapping min=100001 max=200000 color="yellow"></color-mapping>
+            <color-mapping min=200001 color="orange"></color-mapping>
+          </geo-palette>
+          <geo-popup>
+<h1>{{NAME}}</h1>
+<ul>
+  <li> Size: {{CENSUSAREA}}
+  <li> State ID: {{STATE}}
+  <li> Geo ID: {{GEO_ID}}
+</ul>
+          </geo-popup>
+        </geo-json>
+      </leaflet-map>
+    </responsive-child>
+
     <script src="app.js"></script>
     <% /*= t.include("partials/_adFoot.html"); */ %>
     <%= t.include("partials/_workHere.html") %>
