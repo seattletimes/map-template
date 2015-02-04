@@ -5,17 +5,25 @@
   box-sizing: border-box;
 }
 
+@aspect-ratio: 7/10;
+@legend-length: 7; //number of legend items
+
+@mobile: ~"(max-width: 480px)";
+@tablet: ~"(max-width: 800px)";
+
 body {
   padding: 0;
   margin: 0;
 }
 
-.map-container {
+.aspect-ratio-outer {
   width: 100%;
-  height: 0;
-  padding-bottom: 56%;
   position: relative;
-  display: block;
+
+  .aspect-ratio-inner {
+    padding-bottom: percentage(@aspect-ratio);
+    position: relative;
+  }
 
   leaflet-map {
     position: absolute;
@@ -29,3 +37,12 @@ body {
     }
   }
 }
+
+.map-container {
+  position: relative;
+
+
+}
+
+@import "leaflet-tweaks";
+@import "legend";

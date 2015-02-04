@@ -10,28 +10,48 @@
   <body>
 
     <responsive-child class="map-container">
-      <leaflet-map zoom=4>
-        <tile-layer layer="esriGray"></tile-layer>
-        <geo-json>
-          <geo-data><%= t.include("states.geo.json") %></geo-data>
-          <geo-style>{ "weight": 1, "color": "#000" }</geo-style>
-          <geo-palette property="CENSUSAREA">
-            <color-mapping max=10000 color="purple"></color-mapping>
-            <color-mapping min=10001 max=50000 color="blue"></color-mapping>
-            <color-mapping min=50001 max=100000 color="green"></color-mapping>
-            <color-mapping min=100001 max=200000 color="yellow"></color-mapping>
-            <color-mapping min=200001 color="orange"></color-mapping>
-          </geo-palette>
-          <geo-popup>
-<h1>{{NAME}}</h1>
-<ul>
-  <li> Size: {{CENSUSAREA}}
-  <li> State ID: {{STATE}}
-  <li> Geo ID: {{GEO_ID}}
-</ul>
-          </geo-popup>
-        </geo-json>
-      </leaflet-map>
+      <div class="aspect-ratio-outer">
+        <div class="aspect-ratio-inner">
+
+          <leaflet-map zoom=4>
+            <tile-layer layer="esriGray"></tile-layer>
+            <geo-json>
+              <geo-data><%= t.include("states.geo.json") %></geo-data>
+              <geo-style>{ "weight": 1, "color": "#000" }</geo-style>
+              <geo-palette property="CENSUSAREA">
+                <color-mapping max=10000 color="purple"></color-mapping>
+                <color-mapping min=10001 max=50000 color="blue"></color-mapping>
+                <color-mapping min=50001 max=100000 color="green"></color-mapping>
+                <color-mapping min=100001 max=200000 color="yellow"></color-mapping>
+                <color-mapping min=200001 color="orange"></color-mapping>
+              </geo-palette>
+              <geo-popup>
+    <h1>{{NAME}}</h1>
+    <ul>
+      <li> Size: {{CENSUSAREA}}
+      <li> State ID: {{STATE}}
+      <li> Geo ID: {{GEO_ID}}
+    </ul>
+              </geo-popup>
+            </geo-json>
+          </leaflet-map>
+
+        </div>
+      </div>
+
+      <aside class="legend">
+        <h1>Map legend</h1>
+        <ul class="scale">
+          <li> <span class="block" style="background-color: red"></span> Cherry
+          <li> <span class="block" style="background-color: orange"></span> Orange
+          <li> <span class="block" style="background-color: yellow"></span> Lemon
+          <li> <span class="block" style="background-color: green"></span> Lime
+          <li> <span class="block" style="background-color: blue"></span> Blueberry
+          <li> <span class="block" style="background-color: indigo"></span> Blackberry
+          <li> <span class="block" style="background-color: violet"></span> Plum
+        </ul>
+        <cite class="source">Source: name of source</cite>
+      </aside>
     </responsive-child>
 
     <script src="app.js"></script>
