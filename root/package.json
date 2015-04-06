@@ -10,10 +10,10 @@
   "dependencies": {
     "async": "^0.9.0",
     "aws-sdk": "^2.0.0-rc.19",
+    "babelify": "^5.0.4",
     "browserify": "^6.2.0",
-    "chalk": "^0.5.1",
-    "component-leaflet-map": "^0.0.6",
-    "component-responsive-frame": "^1.0.5",
+    "chalk": "^1.0.0",
+    "component-responsive-frame": "^1.0.6",
     "csv": "^0.4.0",
     "document-register-element": "^0.1.6",
     "exorcist": "^0.1.6",
