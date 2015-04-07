@@ -17,9 +17,11 @@ aside.legend {
   }
 
   h1 {
-    padding: 4px 0 8px 0;
-    line-height:1.3;
     margin: 0;
+    padding: 0;
+    text-align: left;
+    font-size: 14px;
+    text-transform: uppercase;
   }
 
   ul.scale {
@@ -27,6 +29,7 @@ aside.legend {
     margin: 0;
     list-style-type: none;
     overflow: auto;
+    padding-bottom: 8px;
 
     li {
       line-height: 18px;
@@ -53,9 +56,27 @@ aside.legend {
   }
 
   cite.source {
-    font-size: 70%;
-    color: #999;
-    clear: both;
-    font-style: normal;
-  }
+
+      font-size: 90%;
+      padding-top: 2em;
+      padding-bottom: 2em;
+      color: #999;
+      clear: both;
+      margin-top: 10px;
+
+      text-decoration: italic;
+
+      .credit {
+        font-style: normal;
+        text-align: left;
+        font-size: 95%;
+        text-transform: uppercase;
+        display: block;
+
+        @media @tablet {
+          display:inline-block;
+        float: right;
+        }
+      }
+    }
 }
