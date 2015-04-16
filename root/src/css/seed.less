@@ -59,5 +59,54 @@ body {
   }
 }
 
+.popuptext {
+  font-family: @df-sans;
+  width: auto;
+
+  .normal {
+    margin: 6px 0;
+  }
+
+  .note {
+    margin-top: 8px;
+    font-size: 95%;
+    text-decoration: italic;
+    color: #6D6D6D;
+    padding-left: 5px;
+  }
+
+  .address {
+    text-align: center;
+  }
+
+  .emphasis {
+    font-weight: bold;
+    font-size: 110%;
+  }
+
+  .popup-img {
+    width: 100%;
+    min-width: 380px;
+    height: auto;
+    padding-top: 10px;
+
+    @media @tablet {
+      min-width:300px;
+    }
+
+    @media @mobile {
+      min-width:200px;
+    }
+  }
+
+  .image-credit {
+      font-size: 90%;
+      text-align: right;
+      text-transform: uppercase;
+      display:block;
+      color: gray;
+    }
+}
+
 @import "leaflet-tweaks";
 @import "legend";
