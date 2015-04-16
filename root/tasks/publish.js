@@ -74,11 +74,6 @@ module.exports = function(grunt) {
       return;
     }
 
-    if (deploy == "live" && !config.production) {
-      var checklist = grunt.file.read("tasks/checklist.txt");
-      grunt.fail.fatal(checklist);
-    }
-
     var bucketConfig = config.s3[deploy];
 
     var creds = require("../auth.json");
