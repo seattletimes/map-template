@@ -63,8 +63,19 @@ body {
   font-family: @df-sans;
   width: auto;
 
-  .normal {
+   @media @tablet {
+      max-width:200px;
+    }
+
+    @media @mobile {
+      max-width:150px;
+      // max-height: 180px;
+      overflow: scroll;
+    }
+
+  .descript {
     margin: 6px 0;
+
   }
 
   .note {
@@ -73,6 +84,7 @@ body {
     text-decoration: italic;
     color: #6D6D6D;
     padding-left: 5px;
+
   }
 
   .address {
@@ -99,13 +111,24 @@ body {
     }
   }
 
-  .image-credit {
+  .credit {
       font-size: 90%;
       text-align: right;
       text-transform: uppercase;
       display:block;
       color: gray;
     }
+}
+
+.bigheader {
+  text-align: center;
+  font-size: 16px;
+  text-transform: uppercase;
+  margin: 12px 0 0 0;
+
+  @media @tablet {
+    font-size:14px;
+  }
 }
 
 @import "leaflet-tweaks";
