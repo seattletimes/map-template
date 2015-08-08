@@ -74,10 +74,22 @@ module.exports = function(grunt) {
       return;
     }
 
+    if (deploy == "live" && !config.production) {
+      var checklist = grunt.file.read("tasks/checklist.txt");
+      grunt.fail.fatal(checklist);
+    }
+
     var bucketConfig = config.s3[deploy];
 
-    var creds = require("../auth.json");
-    aws.config.update(creds.s3);
+    var creds = {
+      accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+      secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+      region: process.env.AWS_DEFAULT_REGION
+    };
+    if (!creds.accessKeyId) {
+      creds = require("../auth.json").s3;
+    }
+    aws.config.update(creds);    
 
     var s3 = new aws.S3();
     s3.createBucket({
@@ -106,7 +118,7 @@ module.exports = function(grunt) {
               var after = zipped.length;
               obj.ContentEncoding = "gzip";
               console.log("Uploading gzipped %s - %s %s %s (%s)",
-                upload.path,
+                obj.Key,
 
                 chalk.cyan(formatSize(before)),
                 chalk.yellow("=>"),
