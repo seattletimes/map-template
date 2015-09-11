@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" type="text/css" href="style.css">
     <% /*= t.include("partials/_adHead.html") */ %>
-    
+
     <!-- typekit fonts -->
     <script>
     (function(d) {
@@ -21,10 +21,15 @@
   <body>
 
     <responsive-child class="map-container">
+      <section class="chatter">
+        <h1>Lorem Ipsum</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consequat aliquam lectus vitae porttitor. Donec euismod sem dui, ac gravida sem mattis sed. Fusce porttitor accumsan sem elementum convallis. Nam id augue lobortis, laoreet magna non, sodales risus. </p>
+      </section>
+
       <div class="aspect-ratio-outer">
         <div class="aspect-ratio-inner">
 
-          <leaflet-map zoom=4>
+          <leaflet-map zoom=10>
             <tile-layer layer="cartoPositron"></tile-layer>
             <geo-json>
               <geo-data><%= t.include("states.geo.json") %></geo-data>
