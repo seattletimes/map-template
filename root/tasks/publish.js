@@ -74,11 +74,6 @@ module.exports = function(grunt) {
       return;
     }
 
-    if (deploy == "live" && !config.production) {
-      var checklist = grunt.file.read("tasks/checklist.txt");
-      grunt.fail.fatal(checklist);
-    }
-
     var bucketConfig = config.s3[deploy];
 
     var creds = {
@@ -89,7 +84,7 @@ module.exports = function(grunt) {
     if (!creds.accessKeyId) {
       creds = require("../auth.json").s3;
     }
-    aws.config.update(creds);    
+    aws.config.update(creds);
 
     var s3 = new aws.S3();
     s3.createBucket({
