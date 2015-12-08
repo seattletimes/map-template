@@ -14,7 +14,7 @@ module.exports = function(grunt) {
 
     grunt.task.requires("state");
 
-    var files = grunt.file.expand("csv/**/*.csv");
+    var files = grunt.file.expand("data/**/*.csv");
 
     grunt.data.csv = {};
 
@@ -24,8 +24,10 @@ module.exports = function(grunt) {
       file = file.replace(/\r/g, "").split("\n").filter(function(line) { return line.match(/[^,]/) }).join("\n");
       var isKeyed = !!(file.split("\n").shift().match(/(^|,)key(,|$)/));
       var parsed = isKeyed ? {} : [];
+      
       var parser = csv.parse({
-        columns: true
+        columns: true,
+        auto_parse: true
       });
       parser.on("data", function(line) {
         //if "key" is a column, make this an object hash

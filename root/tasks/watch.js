@@ -15,6 +15,7 @@ module.exports = function(grunt) {
   grunt.config.merge({
     watch: {
       options: {
+        spawn: false,
         livereload: true
       },
       less: {
@@ -22,7 +23,7 @@ module.exports = function(grunt) {
         tasks: ["less"]
       },
       templates: {
-        files: ["src/**/*.html", "csv/**/*.csv"],
+        files: ["src/**/*.html", "data/**/*", "src/**/*.md"],
         tasks: ["template"]
       },
       js: {

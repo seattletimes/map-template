@@ -11,7 +11,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask("json", "Load JSON for templating", function() {
 
-    var files = grunt.file.expand(["project.json", "package.json", "json/**/*.json"]);
+    var files = grunt.file.expand(["project.json", "package.json", "data/**/*.json"]);
 
     grunt.task.requires("state");
 
@@ -19,7 +19,7 @@ module.exports = function(grunt) {
 
     files.forEach(function(file) {
       var json = grunt.file.readJSON(file);
-      var name = path.basename(file).replace(/\.json$/, "");
+      var name = path.basename(file).replace(/(\.sheet)?\.json$/, "");
       grunt.data.json[name] = json;
     });
 
