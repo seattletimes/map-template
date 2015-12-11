@@ -1,29 +1,55 @@
 <!doctype html>
 <html>
-  <head>
-    <title><%= json.project.title %></title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <% /*= t.include("partials/_adHead.html") */ %>
+
+<head>
+  <title>
+    <%= json.project.title %>
+  </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <% /*= t.include("partials/_adHead.html") */ %>
 
     <!-- typekit fonts -->
     <script>
-    (function(d) {
-    var config = {
-      kitId: 'rvq5yyp',
-      scriptTimeout: 3000
-    },
-    h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='//use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
-    })(document);
+      (function(d) {
+        var config = {
+            kitId: 'rvq5yyp',
+            scriptTimeout: 3000
+          },
+          h = d.documentElement,
+          t = setTimeout(function() {
+            h.className = h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive";
+          }, config.scriptTimeout),
+          tk = d.createElement("script"),
+          f = false,
+          s = d.getElementsByTagName("script")[0],
+          a;
+        h.className += " wf-loading";
+        tk.src = '//use.typekit.net/' + config.kitId + '.js';
+        tk.async = true;
+        tk.onload = tk.onreadystatechange = function() {
+          a = this.readyState;
+          if (f || a && a != "complete" && a != "loaded") return;
+          f = true;
+          clearTimeout(t);
+          try {
+            Typekit.load(config)
+          } catch (e) {}
+        };
+        s.parentNode.insertBefore(tk, s)
+      })(document);
     </script>
-  </head>
-  <body>
+</head>
 
-    <responsive-child class="map-container">
+<body>
+
+  <responsive-child class="map-container">
+    <div class="outmost">
       <section class="chatter">
         <h1>Lorem Ipsum</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consequat aliquam lectus vitae porttitor. Donec euismod sem dui, ac gravida sem mattis sed. Fusce porttitor accumsan sem elementum convallis. Nam id augue lobortis, laoreet magna non, sodales risus. </p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consequat aliquam lectus vitae porttitor. Donec euismod sem dui, ac gravida sem mattis sed. Fusce porttitor accumsan sem elementum convallis. Nam id augue lobortis, laoreet magna non,
+          sodales risus. </p>
       </section>
 
       <div class="aspect-ratio-outer">
@@ -32,7 +58,9 @@
           <leaflet-map zoom=10>
             <tile-layer layer="cartoPositron"></tile-layer>
             <geo-json>
-              <geo-data><%= t.include("states.geo.json") %></geo-data>
+              <geo-data>
+                <%= t.include("states.geo.json") %>
+              </geo-data>
               <geo-style>{ "weight": 1, "color": "#000" }</geo-style>
               <geo-palette property="CENSUSAREA">
                 <color-mapping max=10000 color="purple"></color-mapping>
@@ -42,12 +70,12 @@
                 <color-mapping min=200001 color="orange"></color-mapping>
               </geo-palette>
               <geo-popup>
-    <h1 class="bigheader">{{NAME}}</h1>
-    <ul>
-      <li> Size: {{CENSUSAREA}}
-      <li> State ID: {{STATE}}
-      <li> Geo ID: {{GEO_ID}}
-    </ul>
+                <h1 class="bigheader">{{NAME}}</h1>
+                <ul>
+                  <li> Size: {{CENSUSAREA}}
+                    <li> State ID: {{STATE}}
+                      <li> Geo ID: {{GEO_ID}}
+                </ul>
               </geo-popup>
             </geo-json>
           </leaflet-map>
@@ -58,20 +86,21 @@
       <aside class="legend">
         <h1>Map legend</h1>
         <ul class="scale">
-          <li> <span class="block" style="background-color: red"></span> Cherry
-          <li> <span class="block" style="background-color: orange"></span> Orange
-          <li> <span class="block" style="background-color: yellow"></span> Lemon
-          <li> <span class="block" style="background-color: green"></span> Lime
-          <li> <span class="block" style="background-color: blue"></span> Blueberry
-          <li> <span class="block" style="background-color: indigo"></span> Blackberry
-          <li> <span class="block" style="background-color: violet"></span> Plum
+          <li><span class="block" style="background-color: red"></span> Cherry</li>
+          <li><span class="block" style="background-color: orange"></span> Orange</li>
+          <li><span class="block" style="background-color: yellow"></span> Lemon</li>
+          <li><span class="block" style="background-color: green"></span> Lime</li>
+          <li><span class="block" style="background-color: blue"></span> Blueberry</li>
         </ul>
-        <cite class="source">Source: Name of source <span class="credit">XXX XXX / THE SEATTLE TIMES</cite>
       </aside>
-    </responsive-child>
+      <cite class="source">Source: Name of source
+        <span class="credit">XXX XXX / THE SEATTLE TIMES</cite>
+    </div>
+  </responsive-child>
 
-    <script src="app.js"></script>
-    <% /*= t.include("partials/_adFoot.html"); */ %>
+  <script src="app.js"></script>
+  <% /*= t.include("partials/_adFoot.html"); */ %>
     <%= t.include("partials/_workHere.html") %>
-  </body>
+</body>
+
 </html>

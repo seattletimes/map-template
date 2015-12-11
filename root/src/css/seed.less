@@ -1,126 +1,111 @@
 @import "seattletimes";
-
 @aspect-ratio: 7/10;
-@legend-length: 7; //number of legend items
-
+@legend-length: 5; //number of legend items
 body {
   font-family: @df-sans;
   padding: 0;
-  margin: 0;
+  margin: 0 auto;
   max-width: 630px;
   font-size: 16px;
 }
-
+.outmost {
+  border-top: 1px solid @df-border-gray;
+  border-bottom: 1px solid @df-border-gray;
+  padding: 8px 0;
+  margin: 20px auto;
+  max-width: 960px;
+  padding-bottom: 0;
+  clear: both;
+}
 .aspect-ratio-outer {
   width: 100%;
   position: relative;
-
   .aspect-ratio-inner {
     padding-bottom: percentage(@aspect-ratio);
     position: relative;
   }
-
   leaflet-map {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-
     &:not([ready]) {
       display: none;
     }
   }
 }
-
 .map-container {
   position: relative;
-
-
 }
-
 .bigheader {
   text-align: center;
   font-size: 16px;
   text-transform: uppercase;
-  margin: 12px 0 0 0;
-
+  margin: 12px 0 0;
   @media @tablet {
-    font-size:14px;
+    font-size: 14px;
   }
 }
-
 .popuptext {
   font-family: @df-sans;
   width: auto;
+  @media @tablet {
+    max-width: 200px;
+  }
+  @media @mobile {
+    max-width: 150px;
 
-   @media @tablet {
-      max-width:200px;
-    }
-
-    @media @mobile {
-      max-width:150px;
-      // max-height: 180px;
-      overflow: scroll;
-    }
-
+    // max-height: 180px;
+    overflow: scroll;
+  }
   .descript {
     margin: 6px 0;
-
   }
-
   .note {
     margin-top: 8px;
     font-size: 95%;
     text-decoration: italic;
-    color: #6D6D6D;
+    color: #6d6d6d;
     padding-left: 5px;
-
   }
-
   .address {
     text-align: center;
   }
-
   .emphasis {
     font-weight: bold;
     font-size: 110%;
   }
-
   .popup-img {
     width: 100%;
     min-width: 380px;
     height: auto;
     padding-top: 10px;
-
     @media @tablet {
-      min-width:300px;
+      min-width: 300px;
     }
-
     @media @mobile {
-      min-width:200px;
+      min-width: 200px;
     }
   }
-
   .credit {
-      font-size: 90%;
-      text-align: right;
-      text-transform: uppercase;
-      display:block;
-      color: gray;
-    }
-}
-
-.bigheader {
-  text-align: center;
-  font-size: 16px;
-  text-transform: uppercase;
-  margin: 12px 0 0 0;
-
-  @media @tablet {
-    font-size:14px;
+    font-size: 90%;
+    text-align: right;
+    text-transform: uppercase;
+    display: block;
+    color: gray;
   }
 }
-
+.chatter {
+  h1 {
+    font-size: 20px;
+    text-align: center;
+    line-height: 1.2;
+  }
+  p {
+    text-align: center;
+    font-family: @df-serif;
+  }
+}
 @import "leaflet-tweaks";
 @import "legend";
