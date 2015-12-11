@@ -8,57 +8,50 @@ aside.legend {
   background: white;
   background: rgba(255,255,255,0.8);
   border-radius: 5px;
-
   @media @tablet {
     position: relative;
     width: 100%;
     bottom: 0;
     left: 0;
   }
-
   h1 {
     margin: 0;
-    padding: 0;
+    padding: 5px 5px 5px 0;
     text-align: left;
     font-size: 14px;
     text-transform: uppercase;
+    line-height: 1.5;
   }
-
   ul.scale {
     padding: 0;
     margin: 0;
     list-style-type: none;
     overflow: auto;
     padding-bottom: 8px;
-
     li {
       line-height: 18px;
       margin-bottom: 2px;
-
       @media @tablet {
         float: left;
         text-align: center;
         width: 100% / @legend-length;
       }
     }
-
     .block {
       width: 2em;
       height: 12px;
       display: inline-block;
       vertical-align: text-top;
-
       @media @tablet {
         display: block;
         width: auto;
       }
     }
   }
-
 }
 .source {
   font-size: 12px;
-  padding: 10px 0 10px 0;
+  padding: 10px 0;
   color: #999;
   clear: both;
   font-style: italic;
