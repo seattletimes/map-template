@@ -20,7 +20,7 @@ var formatSize = function(input) {
   return input + "B";
 };
 
-var gzippable = ["js", "html", "json", "map", "css", "txt", "svg", "geojson"];
+var gzippable = ["js", "html", "json", "map", "css", "txt", "csv", "svg", "geojson"];
 
 module.exports = function(grunt) {
 
@@ -74,15 +74,23 @@ module.exports = function(grunt) {
       return;
     }
 
+    if (deploy == "live" && !config.production) {
+      var checklist = grunt.file.read("tasks/checklist.txt");
+      grunt.fail.fatal(checklist);
+    }
+
     var bucketConfig = config.s3[deploy];
+    //strip slashes for safety
+    bucketConfig.path = bucketConfig.path.replace(/^\/|\/$/g, "");
 
     var creds = {
       accessKeyId: process.env.AWS_ACCESS_KEY_ID,
       secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-      region: process.env.AWS_DEFAULT_REGION
+      region: process.env.AWS_DEFAULT_REGION || "us-west-1"
     };
     if (!creds.accessKeyId) {
-      creds = require("../auth.json").s3;
+      console.error("Missing AWS configuration variables.")
+      return done();
     }
     aws.config.update(creds);
 
@@ -101,7 +109,7 @@ module.exports = function(grunt) {
           Body: upload.buffer,
           ACL: "public-read",
           ContentType: mime.lookup(upload.path),
-          CacheControl: "public,max-age=3000"
+          CacheControl: "public,max-age=300"
         };
         //if this matches GZip support, compress them before uploading to S3
         var extension = upload.path.split(".").pop();
