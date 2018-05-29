@@ -14,7 +14,7 @@
     "browserify": "^10.2.4",
     "chalk": "^1.0.0",
     "commonmark": "^0.20.0",
-    "component-leaflet-map": "^0.0.13",
+    "component-leaflet-map": "^0.0.17",
     "component-responsive-frame": "^1.0.6",
     "csv": "^0.4.2",
     "exorcist": "^0.4.0",
