@@ -14,10 +14,10 @@ if (shim$) {
   window.$ = function() { return ish; };
 }
 
-var css = ["http://discussions.seattletimes.com/comments/css/st-commenting.css"];
+var css = ["https://discussions.seattletimes.com/comments/css/st-commenting.css"];
 var async = [
-  "http://zor.livefyre.com/wjs/v3.0/javascripts/livefyre.js",
-  "http://discussions.seattletimes.com/comments/js/livefyreembed.js",
+  "https://zor.livefyre.com/wjs/v3.0/javascripts/livefyre.js",
+  "https://discussions.seattletimes.com/comments/js/livefyreembed.js",
   "https://secure.seattletimes.com/accountcenter/ssoconfig.js",
   "https://secure.seattletimes.com/accountcenter/js/cookies.js",
   "https://secure.seattletimes.com/accountcenter/js/logout.js",
