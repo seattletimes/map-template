@@ -21,25 +21,36 @@ body {
   line-height: @df-line-base;
   padding: 0;
   margin: 0;
+  //remove 300ms click delay in Safari, AKA still the worst
+  touch-action: manipulation;
+}
+
+main {
+  display: block;
+
+  &.interactive {
+    padding: 20px 10px;
+    margin: 20px auto;
+    border-top: 1px solid @df-light-gray;
+    border-bottom: 1px solid @df-light-gray;
+    font-family: @df-sans;
+  }
 }
 
 a {
   color: @df-blue;
   text-decoration: none;
-  outline: 0 !important;
-  &:hover {
+
+  &:visited {
+    color: @df-middle-gray;
+  }
+
+  &:hover, &:focus {
     color: @df-navy;
   }
-  img {
-    border: none;
-  }
 }
 
-img, video, embed, object, iframe {
-  max-width: 100%;
-}
-
-h1, h2, h3, h4, h5, h6 {
+h1, h2 {
   color: @df-off-black;
   margin: @df-line-base 0 (@df-line-base/2) 0;
 }
@@ -59,78 +70,38 @@ h2 {
   font-size: 24px;
   line-height: @df-line-base;
 }
-h3 {
-  font-size: 22px;
-  line-height: 23 / 22;
-}
-h4 {
+
+//common style elements
+.publish-date {
   font-size: 16px;
-  font-weight: 600;
-  line-height: 24 / 16;
-  margin: @df-line-base/2 0 0 0;
+  font-family: @df-sans;
+  color: @df-middle-gray;
 }
-
-//header and menu
-nav.main-nav {
-  background: white;
-  border-bottom: 1px solid @df-light-gray;
-  box-shadow: 0 2px 7px rgba(0, 0, 0, .1);
-  position: relative;
-  line-height: 1;
-
-  .wrapper {
-    max-width: 1020px;
-    margin: auto;
-    position: relative;
-    text-align: center;
-
-    @media @tablet {
-      height: 40px;
-      padding: 10px;
-    }
+.graphic-hed {
+  font-family: @df-sans;
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+}
+.graphic-chatter {
+  font-family: @df-sans;
+  font-size: 17px;
+  font-weight: normal;
+  text-align: center;
+}
+.data-source, .art-credit, .caption {
+  color: @df-middle-gray;
+  font-family: @df-sans;
+  font-size: 14px;
+}
+.data-source {
+  font-style: italic;
+  @media @tablet-up {
+    float: left;
   }
-
-  .logo {
-    display: block;
-    vertical-align: middle;
-
-    img {
-      width: 310px;
-      height: 70px;
-      max-height: 100%;
-
-      @media @tablet {
-        height: 24px;
-        width: auto;
-      }
-    }
-  }
-
-  .share {
-    position: absolute;
-    top: 20px;
-    right: 10px;
-
-    @media @tablet {
-      top: 10px;
-      right: 4px;
-      width: auto !important;
-    }
-
-    label {
-      background: white !important;
-    }
-
-    @media @mobile {
-      label {
-        span {
-          display: none;
-        }
-      }
-
-      .left {
-        margin-left: -275px !important;
-      }
-    }
+}
+.art-credit {
+  @media @tablet-up {
+    float: right;
   }
 }

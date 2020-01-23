@@ -18,12 +18,38 @@
   <responsive-child class="map-container">
     <div class="outmost">
       <section class="chatter">
-        <h1>Lorem Ipsum</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consequat aliquam lectus vitae porttitor. Donec euismod sem dui, ac gravida sem mattis sed. Fusce porttitor accumsan sem elementum convallis. Nam id augue lobortis, laoreet magna non,
-          sodales risus. </p>
+        <h1 class="graphic-hed">Lorem Ipsum</h1>
+        <p class="graphic-chatter">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consequat aliquam lectus vitae porttitor. Donec euismod sem dui, ac gravida sem mattis sed. Fusce porttitor accumsan sem elementum convallis. Nam id augue lobortis, laoreet magna non,
+          sodales risus.</p>
       </section>
 
       <div class="aspect-ratio-outer">
+
+          <aside class="legend">
+          <h2 class="legend-hed">Optional map legend hed</h2>
+          <ul class="scale">
+            <li>
+              <div class="block" style="background-color: red"></div>
+                <p>Cherry</p>
+            </li><!--
+         --><li>
+              <span class="block" style="background-color: orange"></span>
+              <p>Orange</p>
+            </li><!--
+         --><li>
+              <span class="block" style="background-color: yellow"></span>
+              <p>Lemon</p>
+            </li><!--
+         --><li>
+              <span class="block" style="background-color: green"></span>
+              <p>Lime</p>
+            </li><!--
+         --><li>
+              <span class="block" style="background-color: blue"></span>
+              <p>Blueberry</p>
+            </li>
+          </ul>
+        </aside>
         <div class="aspect-ratio-inner">
 
           <leaflet-map zoom=10>
@@ -43,41 +69,25 @@
               <geo-popup>
                 <h1 class="bigheader">{{NAME}}</h1>
                 <ul>
-                  <li> Size: {{CENSUSAREA}}
-                  <li> State ID: {{STATE}}
-                  <li> Geo ID: {{GEO_ID}}
+                  <li>Size: {{CENSUSAREA}}</li>
+                  <li>State ID: {{STATE}}</li>
+                  <li>Geo ID: {{GEO_ID}}</li>
                 </ul>
               </geo-popup>
             </geo-json>
           </leaflet-map>
 
         </div>
-        <aside class="legend">
-          <h1>Map legend</h1>
-          <ul class="scale">
-            <li>
-              <span class="block" style="background-color: red"></span> Cherry</li>
-            <li>
-              <span class="block" style="background-color: orange"></span> Orange</li>
-            <li>
-              <span class="block" style="background-color: yellow"></span> Lemon</li>
-            <li>
-              <span class="block" style="background-color: green"></span> Lime</li>
-            <li>
-              <span class="block" style="background-color: blue"></span> Blueberry</li>
-          </ul>
-        </aside>
       </div>
 
-
-      <div class="source">Source: Name of source
-        <span class="credit">XXX XXX / THE SEATTLE TIMES</div>
-    </div>
+      <div class="caption-container">
+        <div class="data-source">Source: Name of source</div>
+        <div class="art-credit">Hilary Fung / The Seattle Times</div>
+      </div>
   </responsive-child>
 
   <script src="app.js"></script>
-  <% /*= t.include("partials/_foot.html"); */ %>
-    <%= t.include("partials/_workHere.html") %>
+  <%= t.include("partials/_workHere.html") %>
 </body>
 
 </html>

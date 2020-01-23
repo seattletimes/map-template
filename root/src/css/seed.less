@@ -1,6 +1,7 @@
 @import "seattletimes";
 @aspect-ratio: 7/10;
 @legend-length: 5; //number of legend items
+
 body {
   font-family: @df-sans;
   padding: 0;
@@ -38,27 +39,18 @@ body {
 .map-container {
   position: relative;
 }
-.bigheader {
-  text-align: center;
-  font-size: 16px;
-  text-transform: uppercase;
-  margin: 12px 0 0;
-  @media @tablet {
-    font-size: 14px;
-  }
+.graphic-hed, .graphic-chatter {
+  margin: 8px 0;
+}
+.caption-container {
+  margin: 5px 0;
+}
+.caption-container::after {
+  clear: both;
+  content: ""; 
+  display: block;
 }
 
-.chatter {
-  h1 {
-    font-size: 20px;
-    text-align: center;
-    line-height: 1.2;
-  }
-  p {
-    text-align: center;
-    font-family: @df-serif;
-  }
-}
 @import "leaflet-tweaks";
 @import "legend";
 @import "popup";
