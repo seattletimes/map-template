@@ -8,6 +8,7 @@
     "url": "https://github.com/{%= github_repo %}.git"
   },
   "dependencies": {
+    "@nprapps/sidechain": "^1.1.4",
     "async": "^1.2.1",
     "aws-sdk": "^2.897.0",
     "babelify": "^7.3.0",
@@ -15,7 +16,6 @@
     "chalk": "^4.1.0",
     "commonmark": "^0.20.0",
     "component-leaflet-map": "^0.0.21",
-    "component-responsive-frame": "^1.4.2",
     "csv": "^5.5.0",
     "exorcist": "^0.4.0",
     "google-spreadsheets": "^0.4.1",

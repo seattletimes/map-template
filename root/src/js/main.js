@@ -1,6 +1,17 @@
 //load our custom elements
 require("component-leaflet-map");
-require("component-responsive-frame");
+
+//added sidechain 
+import Sidechain from '@nprapps/sidechain';
+const guest = Sidechain.registerGuest({ sentinel: 'st' });
+
+guest.sendMessage({
+  type: 'analytics',
+  eventCategory: 'interaction',
+  eventAction: 'click',
+  eventLabel: 'etc'
+})
+//end sidechain
 
 //get access to Leaflet and the map
 var element = document.querySelector("leaflet-map");
